@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine?</title>
+
+  <!-- Basic styling: easy to tweak later -->
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffc0cb; /* soft pink */
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      max-width: 90%;
+    }
+
+    h1 {
+      color: #d6336c;
+      margin-bottom: 1.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #adb5bd;
+      color: white;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6b81;
+      transform: rotate(45deg);
+      animation: float 8s infinite ease-in;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6b81;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -10%;
+        transform: translateX(0) rotate(45deg);
+      }
+      100% {
+        bottom: 110%;
+        transform: translateX(50px) rotate(45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts (duplicate or remove as desired) -->
+  <div class="heart" style="left: 10%; animation-duration: 7s;"></div>
+  <div class="heart" style="left: 30%; animation-duration: 9s;"></div>
+  <div class="heart" style="left: 50%; animation-duration: 6s;"></div>
+  <div class="heart" style="left: 70%; animation-duration: 8s;"></div>
+  <div class="heart" style="left: 90%; animation-duration: 10s;"></div>
+
+  <div class="container">
+    <h1>Will you be my Valentine? ❤️</h1>
+    <div class="buttons">
+      <button class="yes" onclick="yesClicked()">Yes</button>
+      <button class="no" onclick="noClicked()">No</button>
+    </div>
+  </div>
+
+  <!-- Simple JavaScript: easy to expand later -->
+  <script>
+    function yesClicked() {
+      // SHOW AN IMAGE WHEN "YES" IS CLICKED
+      // Replace 'yes-image.jpg' with your actual image file name
+
+      document.body.innerHTML = `
+        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:#ffc0cb;font-family:Arial,sans-serif;">
+          <img src="yes-image.jpg" alt="Yes Image" style="max-width:90%;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.2);" />
+        </div>
+      `;
+
+      // Optional later:
+      // new Audio('yes-sound.mp3').play();
+    }
+
+    function noClicked() {
+      // SHOW AN IMAGE WHEN "NO" IS CLICKED
+      // Replace 'no-image.jpg' with your actual image file name
+
+      document.body.innerHTML = `
+        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:#ffc0cb;font-family:Arial,sans-serif;">
+          <img src="no-image.jpg" alt="No Image" style="max-width:90%;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.2);" />
+        </div>
+      `;
+
+      // Optional later:
+      // new Audio('no-sound.mp3').play();
+    }
+  </script>
+
+</body>
+</html>
